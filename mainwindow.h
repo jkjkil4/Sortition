@@ -22,6 +22,8 @@ public:
 
     void appendItem();
 
+    void setFileSavedState(bool saved);
+
 public slots:
     void onListWidgetRowChanged(int row);
     void onAppend();
@@ -29,6 +31,9 @@ public slots:
 
 private:
     Ui::MainWindow *ui;
+
+    bool fileSaved = false;
+    QLabel *labShowFileSaved = new QLabel("文件未保存");
 };
 
 #endif // MAINWINDOW_H

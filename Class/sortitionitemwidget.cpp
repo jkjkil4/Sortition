@@ -13,4 +13,11 @@ SortitionItemWidget::SortitionItemWidget()
     weightEdit->setMinimum(1);
 
     setLayout(layMain);
+
+    connect(lineEdit, SIGNAL(textChanged(const QString&)), this, SLOT(onEmitChanged()));
+    connect(weightEdit, SIGNAL(valueChanged(int)), this, SLOT(onEmitChanged()));
+}
+
+void SortitionItemWidget::onEmitChanged() {
+    emit changed();
 }

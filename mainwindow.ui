@@ -76,6 +76,11 @@
    <addaction name="actAppendItem"/>
    <addaction name="actRemoveItem"/>
   </widget>
+  <widget class="QStatusBar" name="statusBar">
+   <property name="sizeGripEnabled">
+    <bool>false</bool>
+   </property>
+  </widget>
   <action name="actAbout">
    <property name="text">
     <string>关于作者</string>

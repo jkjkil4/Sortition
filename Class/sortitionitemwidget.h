@@ -12,12 +12,19 @@
 
 class SortitionItemWidget : public QWidget
 {
+    Q_OBJECT
 public:
     SortitionItemWidget();
     ~SortitionItemWidget() override = default;
 
     LineEdit_IgnoredMouse* lineEdit = new LineEdit_IgnoredMouse;
     SpinBox_IgnoredMouse* weightEdit = new SpinBox_IgnoredMouse;
+
+signals:
+    void changed();
+
+public slots:
+    void onEmitChanged();
 };
 
 #endif // SORTITIONITEM_H
