@@ -1,6 +1,6 @@
-#include "sortitionitem.h"
+#include "sortitionitemwidget.h"
 
-SortitionItem::SortitionItem()
+SortitionItemWidget::SortitionItemWidget()
 {
     QHBoxLayout* layMain = new QHBoxLayout;
     layMain->setMargin(0);
@@ -9,11 +9,8 @@ SortitionItem::SortitionItem()
     lineEdit->setPlaceholderText("请输入内容");
     layMain->addWidget(new QLabel(" 权重:"));
     layMain->addWidget(weightEdit);
+    weightEdit->setValue(1);
+    weightEdit->setMinimum(1);
 
-    mainWidget->setLayout(layMain);
-}
-
-void SortitionItem::initWidget(QListWidget *lw) {
-    setSizeHint(QSize(sizeHint().width(), 24));
-    lw->setItemWidget(this, mainWidget);
+    setLayout(layMain);
 }

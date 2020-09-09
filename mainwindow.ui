@@ -73,13 +73,15 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actAppendItem"/>
+   <addaction name="actRemoveItem"/>
   </widget>
   <action name="actAbout">
    <property name="text">
     <string>关于作者</string>
    </property>
    <property name="toolTip">
-    <string>AboutAuthor</string>
+    <string>关于作者</string>
    </property>
   </action>
   <action name="actAboutQt">
@@ -87,7 +89,34 @@
     <string>关于Qt</string>
    </property>
    <property name="toolTip">
-    <string>AboutQt</string>
+    <string>关于Qt</string>
+   </property>
+  </action>
+  <action name="actAppendItem">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/Btn/Resource/Append.png</normaloff>:/Btn/Resource/Append.png</iconset>
+   </property>
+   <property name="text">
+    <string>添加一个元素</string>
+   </property>
+   <property name="toolTip">
+    <string>添加一个元素</string>
+   </property>
+  </action>
+  <action name="actRemoveItem">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/Btn/Resource/Remove.png</normaloff>:/Btn/Resource/Remove.png</iconset>
+   </property>
+   <property name="text">
+    <string>移除元素</string>
+   </property>
+   <property name="toolTip">
+    <string>移除元素</string>
    </property>
   </action>
  </widget>
@@ -96,6 +125,8 @@
   <tabstop>btnSortition</tabstop>
   <tabstop>listWidget</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
  <connections/>
 </ui>

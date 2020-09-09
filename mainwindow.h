@@ -2,8 +2,11 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QMessageBox>
 
-#include <sortitionitem.h>
+#include <QDebug>
+
+#include "Class/sortitionitemwidget.h"
 
 namespace Ui {
 class MainWindow;
@@ -16,6 +19,13 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+    void appendItem();
+
+public slots:
+    void onListWidgetRowChanged(int row);
+    void onAppend();
+    void onRemove();
 
 private:
     Ui::MainWindow *ui;

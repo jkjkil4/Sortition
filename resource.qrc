@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/Btn">
+        <file>Resource/Append.png</file>
+        <file>Resource/Remove.png</file>
+    </qresource>
+</RCC>
