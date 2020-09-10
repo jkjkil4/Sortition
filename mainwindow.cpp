@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+
     labShowFileSaved->setStyleSheet("color:rgb(220, 50, 50)");
     labShowFileSaved->setVisible(false);
     ui->statusBar->addPermanentWidget(labShowFileSaved);
@@ -25,12 +26,13 @@ MainWindow::~MainWindow()
 
 
 void MainWindow::appendItem() {
-    QListWidgetItem *item = new QListWidgetItem;
-    item->setSizeHint(QSize(item->sizeHint().width(), 24));
-    ui->listWidget->addItem(item);
-    SortitionItemWidget* widget = new SortitionItemWidget;
-    ui->listWidget->setItemWidget(item, widget);
-    connect(widget, &SortitionItemWidget::changed, [=]{ setFileSavedState(false); });
+    QListWidgetItem *item = new QListWidgetItem;    //new一个QListWidgetItem的对象
+    item->setSizeHint(QSize(item->sizeHint().width(), 24)); //设置item的高度
+    ui->listWidget->addItem(item);  //向ListWidget中添加该item
+
+    SortitionItemWidget* widget = new SortitionItemWidget;  //new一个与item对应的widget
+    ui->listWidget->setItemWidget(item, widget);    //设置item和widget的对应关系
+    connect(widget, &SortitionItemWidget::changed, [=]{ setFileSavedState(false); });   //绑定信号与槽
 }
 
 void MainWindow::setFileSavedState(bool saved) {

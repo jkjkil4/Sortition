@@ -31,6 +31,7 @@ SOURCES += \
 
 HEADERS += \
         Class/ignoredmousewidget.h \
+        header.h \
         mainwindow.h \
         Class/sortitionitemwidget.h
 

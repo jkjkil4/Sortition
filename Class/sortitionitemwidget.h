@@ -21,7 +21,7 @@ public:
     SpinBox_IgnoredMouse* weightEdit = new SpinBox_IgnoredMouse;
 
 signals:
-    void changed();
+    void changed(); //当内容改变时调用的东西
 
 public slots:
     void onEmitChanged();
