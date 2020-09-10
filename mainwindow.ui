@@ -64,6 +64,17 @@
     <addaction name="actAbout"/>
     <addaction name="actAboutQt"/>
    </widget>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>文件</string>
+    </property>
+    <addaction name="actNewFile"/>
+    <addaction name="actOpenFile"/>
+    <addaction name="separator"/>
+    <addaction name="actSaveFile"/>
+    <addaction name="actSaveAnother"/>
+   </widget>
+   <addaction name="menuFile"/>
    <addaction name="menuAbout"/>
   </widget>
   <widget class="QToolBar" name="toolBar">
@@ -122,6 +133,38 @@
    </property>
    <property name="toolTip">
     <string>移除元素</string>
+   </property>
+  </action>
+  <action name="actOpenFile">
+   <property name="text">
+    <string>打开</string>
+   </property>
+   <property name="toolTip">
+    <string>打开</string>
+   </property>
+  </action>
+  <action name="actSaveFile">
+   <property name="text">
+    <string>保存</string>
+   </property>
+   <property name="toolTip">
+    <string>保存</string>
+   </property>
+  </action>
+  <action name="actSaveAnother">
+   <property name="text">
+    <string>另存为</string>
+   </property>
+   <property name="toolTip">
+    <string>另存为</string>
+   </property>
+  </action>
+  <action name="actNewFile">
+   <property name="text">
+    <string>新建</string>
+   </property>
+   <property name="toolTip">
+    <string>新建</string>
    </property>
   </action>
  </widget>

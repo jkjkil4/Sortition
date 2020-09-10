@@ -53,7 +53,7 @@ void MainWindow::onRemove() {
     if(row >= 0) {
         QListWidgetItem *item = ui->listWidget->takeItem(row);
         delete item;
+        setFileSavedState(false);
     }
-    setFileSavedState(false);
 }
 
