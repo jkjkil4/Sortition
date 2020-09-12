@@ -17,6 +17,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->actSaveFile->setShortcut(QKeySequence("Ctrl+S"));
 
     //信号与槽
+    connect(ui->actAbout, &QAction::triggered, [=]{
+        QMessageBox::about(this, "关于作者",
+                           "作者: jkjkil4<br>"
+                           "github: <a href=https://github.com/jkjkil4/Sortition>https://github.com/jkjkil4/Sortition</a><br>"
+                           "反馈问题: jkjkil@qq.com"
+                           );
+    });
     connect(ui->actAboutQt, &QAction::triggered, [=]{ QMessageBox::aboutQt(this); });
     //
     connect(ui->listWidget, SIGNAL(currentRowChanged(int)), this, SLOT(onListWidgetRowChanged(int)));
