@@ -25,11 +25,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        Class/choosefiledialog.cpp \
+        Class/filenamedialog.cpp \
         main.cpp \
         mainwindow.cpp \
         Class/sortitionitemwidget.cpp
 
 HEADERS += \
+        Class/choosefiledialog.h \
+        Class/filenamedialog.h \
         Class/ignoredmousewidget.h \
         header.h \
         mainwindow.h \
