@@ -35,8 +35,14 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actOpenFile, SIGNAL(triggered()), this, SLOT(onLoadFile()));
     connect(ui->actSaveFile, SIGNAL(triggered()), this, SLOT(onSaveFile()));
     connect(ui->actSaveAnother, SIGNAL(triggered()), this, SLOT(onSaveAnother()));
+    connect(ui->actDocumentsDir, &QAction::triggered, [=]{
+        checkAndMkpath("Documents");
+        QProcess::startDetached("explorer.exe Documents");
+    });
     //
     connect(ui->btnSortition, SIGNAL(clicked()), this, SLOT(onSortition()));
+
+    setWindowTitle("抽签");
 }
 
 MainWindow::~MainWindow()
@@ -149,8 +155,6 @@ bool MainWindow::load(const QString &name) {
     }
     file.close();
 
-    srand((uint)time(nullptr));
-
     return true;
 }
 
@@ -214,6 +218,10 @@ void MainWindow::onNewFile() {
         return;
     ui->listWidget->clear();
     fileName = "";
+
+    setWindowTitle("抽签");
+    srand((uint)time(nullptr));
+
     setFileSavedState(true);
 }
 
@@ -230,6 +238,9 @@ void MainWindow::onLoadFile() {
     if(!load(result))
         return;
     fileName = result;
+
+    setWindowTitle(result);
+    srand((uint)time(nullptr));
 
     setFileSavedState(true);
 }

@@ -7,6 +7,7 @@
 
 #include <QRegExpValidator>
 #include <QCloseEvent>
+#include <QProcess>
 
 #include <QDebug>
 

@@ -5,6 +5,8 @@ ChooseFileDialog::ChooseFileDialog(QWidget *parent) : QDialog(parent)
     //布局
     QHBoxLayout *layMain = new QHBoxLayout;
     layMain->addWidget(listWidget);
+    jqSetPointSize(listWidget, 10);
+    listWidget->setSpacing(2);
     setLayout(layMain);
     setWindowTitle("请选择文件");
     adjustSize();
