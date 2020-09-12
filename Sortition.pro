@@ -10,6 +10,10 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Sortition
 TEMPLATE = app
+QMAKE_TARGET_COMPANY = jkjkil4        #用于指定生产商
+QMAKE_TARGET_DESCRIPTION = Sortition    #用于描述应用程序
+QMAKE_TARGET_COPYRIGHT = jkjkil4      #用于声明版权
+QMAKE_TARGET_PRODUCT = Sortition        #用于指定产品名称
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
