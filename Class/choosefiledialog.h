@@ -8,6 +8,8 @@
 #include <QDir>
 #include <QTextStream>
 
+#include "header.h"
+
 class ChooseFileDialog : public QDialog
 {
     Q_OBJECT

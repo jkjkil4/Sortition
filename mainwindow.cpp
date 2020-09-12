@@ -28,6 +28,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actOpenFile, SIGNAL(triggered()), this, SLOT(onLoadFile()));
     connect(ui->actSaveFile, SIGNAL(triggered()), this, SLOT(onSaveFile()));
     connect(ui->actSaveAnother, SIGNAL(triggered()), this, SLOT(onSaveAnother()));
+    //
+    connect(ui->btnSortition, SIGNAL(clicked()), this, SLOT(onSortition()));
 }
 
 MainWindow::~MainWindow()
@@ -85,6 +87,36 @@ void MainWindow::onRemove() {
     }
 }
 
+void MainWindow::onSortition() {
+    int count = ui->listWidget->count();
+    if(count == 0) {
+        QMessageBox::information(this, "提示", "没有可抽取的元素");
+        return;
+    }
+
+    struct Element { QString text; int weight; };
+    QList<Element> lElement;
+
+    int totalWeight = 0;
+    for(int i = 0; i < count; i++) {
+        SortitionItemWidget* widget = (SortitionItemWidget*)ui->listWidget->itemWidget(ui->listWidget->item(i));
+        lElement.append({widget->lineEdit->text(), widget->weightEdit->value()});
+        totalWeight += widget->weightEdit->value();
+    }
+
+    int random = rand() % totalWeight;
+    for(Element& element : lElement) {
+        random -= element.weight;
+        if(random < 0) {
+            QMessageBox::information(this, "抽取结果", "结果: " + element.text);
+            break;
+        }
+    }
+
+    if(random >= 0)
+        QMessageBox::critical(this, "警告", "在进行抽取时发生了未知的错误");
+}
+
 
 bool MainWindow::load(const QString &name) {
     ui->listWidget->clear();
@@ -109,6 +141,8 @@ bool MainWindow::load(const QString &name) {
         }
     }
     file.close();
+
+    srand((uint)time(nullptr));
 
     return true;
 }

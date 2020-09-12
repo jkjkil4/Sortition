@@ -7,6 +7,8 @@ ChooseFileDialog::ChooseFileDialog(QWidget *parent) : QDialog(parent)
     layMain->addWidget(listWidget);
     setLayout(layMain);
     setWindowTitle("请选择文件");
+    adjustSize();
+    limitSize(this, size().width(), 450);
 
 
     struct FileInfo { QString file; time_t time; };

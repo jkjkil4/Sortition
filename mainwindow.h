@@ -54,6 +54,8 @@ private slots:
     void onSaveFile();
     void onSaveAnother();
 
+    void onSortition();
+
 private:
     Ui::MainWindow *ui;
 
